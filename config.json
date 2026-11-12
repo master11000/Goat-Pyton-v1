@@ -1,0 +1,165 @@
+{
+  "facebookAccount": {
+    "email": "",
+    "password": "",
+    "2FASecret": "",
+    "i_user": "",
+    "proxy": null,
+    "userAgent": "Mozilla/5.0 (Linux; Android 12; M2102J20SG) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Mobile Safari/537.36",
+    "intervalGetNewCookie": 1440,
+    "notes": "Intervalle (minutes) pour récupérer automatiquement de nouveaux cookies via email/password. null = désactivé. Recommandé : 1440 (1 jour) ou 4320 (3 jours). Nécessite le mot de passe ci-dessus."
+  },
+
+  "antiInbox": false,
+  "language": "fr",
+  "notesLanguage": "Code ISO 639-1. Disponibles : fr (Français), en (Anglais).",
+
+  "adminOnly": {
+    "enable": false,
+    "ignoreCommand": []
+  },
+
+  "adminBot": ["61578718657900"],
+
+  "whiteListMode": {
+    "enable": false,
+    "whiteListIds": [],
+    "notes": "Si activé, seuls les IDs listés peuvent utiliser le bot."
+  },
+
+  "nickNameBot": "➤『 𝙼𝙰𝚂𝚃𝙴𝚁 𝙲𝙷𝙰𝚁𝙱𝙴𝙻 』☜ヅ",
+  "prefix": "~",
+
+  "database": {
+    "type": "sqlite",
+    "uriMongodb": "",
+    "autoSyncWhenStart": false,
+    "autoRefreshThreadInfoFirstTime": true,
+    "notes": "type : 'sqlite' (recommandé) ou 'mongodb'. 'json' n'est PAS supporté en V1 (remplacé par SQLite)."
+  },
+
+  "timeZone": "Africa/Ouagadougou",
+
+  "dashBoard": {
+    "enable": true,
+    "port": 3001,
+    "notes": "Dashboard FastAPI intégré (remplace le dashboard Node de la V2)."
+  },
+
+  "autoRestart": {
+    "time": null,
+    "notes": "Intervalle en ms ou expression cron. null/0 = désactivé."
+  },
+
+  "autoLoadScripts": {
+    "enable": false,
+    "ignoreCmds": "",
+    "ignoreEvents": "",
+    "notes": "Recharge automatiquement les commandes/événements modifiés. ignoreCmds/ignoreEvents : noms séparés par virgule ou espace."
+  },
+
+  "autoRefreshFbstate": true,
+  "autoReloginWhenChangeAccount": false,
+  "autoRestartWhenListenMqttError": false,
+
+  "restartListenMqtt": {
+    "enable": true,
+    "timeRestart": 3600000,
+    "delayAfterStopListening": 2000,
+    "logNoti": true,
+    "notes": "Valeurs en ms. Ne pas modifier sans comprendre."
+  },
+
+  "notiWhenListenMqttError": {
+    "notes": "Notifications en cas d'erreur MQTT (compte verrouillé, spam, etc.).",
+    "telegram": {
+      "enable": false,
+      "botToken": "",
+      "chatId": "",
+      "note": "Plusieurs chatId séparés par virgule ou espace."
+    },
+    "discordHook": {
+      "enable": false,
+      "webhookUrl": "",
+      "note": "Plusieurs webhooks séparés par virgule ou espace."
+    }
+  },
+
+  "hideNotiMessage": {
+    "commandNotFound": false,
+    "adminOnly": false,
+    "threadBanned": false,
+    "userBanned": false,
+    "needRoleToUseCmd": false,
+    "needRoleToUseCmdOnReply": false,
+    "needRoleToUseCmdOnReaction": false
+  },
+
+  "logEvents": {
+    "disableAll": false,
+    "message": true,
+    "message_reaction": true,
+    "message_unsend": true,
+    "message_reply": true,
+    "event": true,
+    "read_receipt": false,
+    "typ": false,
+    "presence": false
+  },
+
+  "optionsFca": {
+    "forceLogin": true,
+    "listenEvents": true,
+    "updatePresence": true,
+    "listenTyping": true,
+    "logLevel": "error",
+    "selfListen": false,
+    "selfListenEvent": true,
+    "autoMarkDelivery": false,
+    "autoReconnect": false,
+    "notes": "Équivalent Python de fb-chat-api options. Adapté pour fbchat-v2."
+  },
+
+  "ai": {
+    "enabled": true,
+    "name": "Master",
+    "author": "Master Charbel",
+    "provider": "mistral",
+    "autoReply": {
+      "enabled": true,
+      "privateOnly": false,
+      "groupsOnlyWhenMentioned": true,
+      "ignorePrefix": "~"
+    },
+    "providers": {
+      "mistral":    { "apiKey": "", "model": "mistral-small-latest" },
+      "openrouter": { "apiKey": "", "model": "deepseek/deepseek-chat" },
+      "gemini":     { "apiKey": "", "model": "gemini-1.5-flash" },
+      "deepseek":   { "apiKey": "", "model": "deepseek-chat" },
+      "openai":     { "apiKey": "", "model": "gpt-4o-mini" },
+      "groq":       { "apiKey": "", "model": "llama-3.3-70b-versatile" },
+      "grok":       { "apiKey": "", "model": "grok-2-latest" },
+      "ollama":     { "baseUrl": "http://localhost:11434", "model": "llama3.2" }
+    },
+    "persona": {
+      "systemPrompt": "Tu es Master, l'IA intégrée à Goat Python V1, créée par Master Charbel. Tu réponds de façon naturelle, utile et concise.",
+      "language": "fr"
+    },
+    "memory": {
+      "enabled": true,
+      "maxMessages": 20
+    },
+    "notes": "Les clés API peuvent être mises ici OU dans les variables d'environnement (prioritaires). Env : MISTRAL_API_KEY, OPENROUTER_API_KEY, GEMINI_API_KEY, DEEPSEEK_API_KEY, OPENAI_API_KEY, GROQ_API_KEY, GROK_API_KEY."
+  },
+
+  "api": {
+    "enabled": true,
+    "host": "0.0.0.0",
+    "port": 8080,
+    "auth": {
+      "enabled": false,
+      "token": ""
+    },
+    "cors": ["*"]
+  }
+}
